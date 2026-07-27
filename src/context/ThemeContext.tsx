@@ -17,7 +17,7 @@ export const AUDIO_TRACKS: AudioTrack[] = [
     sanskritTitle: "गुरु स्तोत्रम् एवं प्रार्थना (Guru Stotram & Vandana)",
     duration: "08:30 mins",
     fileName: "GURU STOTRA.mp3",
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=meditation-om-chant-11234.mp3"
+    audioUrl: "/audio/GURU STOTRA.mp3"
   },
   {
     id: "track-amar-gurur-charan",
@@ -25,7 +25,7 @@ export const AUDIO_TRACKS: AudioTrack[] = [
     sanskritTitle: "আমার গুরুর চরণ (অমর गुरु पद वंदना)",
     duration: "06:45 mins",
     fileName: "AMAR GURUR CHARAN.mp3",
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8ad42e8.mp3?filename=meditation-flute-10940.mp3"
+    audioUrl: "/audio/AMAR GURUR CHARAN.mp3"
   },
   {
     id: "track-vasudev-kirtan",
@@ -33,7 +33,7 @@ export const AUDIO_TRACKS: AudioTrack[] = [
     sanskritTitle: "वासुदेव संकीर्तन (Hare Vasudeva Kirtan)",
     duration: "12:15 mins",
     fileName: "VASUDEV KIRTAN.mp3",
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/10/14/audio_99393a5293.mp3?filename=flute-spiritual-ambient-12442.mp3"
+    audioUrl: "/audio/VASUDEV KIRTAN.mp3"
   }
 ];
 
