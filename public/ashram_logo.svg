@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="800" height="800" fill="#ffffff" />
+
+  <g transform="translate(0, 10)">
+    <!-- Outer Teardrop Outline -->
+    <!-- Point at top (400, 120), swells out to (280, 420), rounds down to (400, 620) -->
+    <path 
+      d="M 400 120 
+         C 320 280, 275 380, 275 480 
+         C 275 570, 330 635, 400 635 
+         C 470 635, 525 570, 525 480 
+         C 525 380, 480 280, 400 120 Z" 
+      fill="#ffffff" 
+      stroke="#112378" 
+      stroke-width="16" 
+      stroke-linejoin="round"
+    />
+
+    <!-- Inner Solid Blue Flame Teardrop -->
+    <path 
+      d="M 400 220 
+         C 345 320, 305 390, 305 470 
+         C 305 530, 345 580, 400 580 
+         C 455 580, 495 530, 495 470 
+         C 495 390, 455 320, 400 220 Z" 
+      fill="#112378" 
+    />
+
+    <!-- Kutastha / Spiritual Eye (inside the inner blue flame) -->
+    <!-- White Ring -->
+    <circle cx="400" cy="455" r="72" fill="none" stroke="#ffffff" stroke-width="16" />
+    
+    <!-- Solid Blue Disc inside White Ring -->
+    <circle cx="400" cy="455" r="54" fill="#112378" />
+    
+    <!-- White Center Dot (Kutastha Star/Point) -->
+    <circle cx="400" cy="455" r="26" fill="#ffffff" />
+
+    <!-- Bottom Ribbon / Open Scroll with Sanskrit Motto -->
+    <!-- Left Wing -->
+    <path 
+      d="M 400 635 
+         C 360 600, 260 520, 140 480 
+         L 165 570 
+         C 270 600, 360 670, 400 710 
+         C 440 670, 530 600, 635 570 
+         L 660 480 
+         C 540 520, 440 600, 400 635 Z" 
+      fill="#112378" 
+      stroke="#112378" 
+      stroke-width="2" 
+      stroke-linejoin="round"
+    />
+
+    <!-- Devanagari Text on Ribbon -->
+    <!-- Curved Path for Left Banner Text -->
+    <path id="leftTextPath" d="M 155 520 C 260 550, 350 610, 395 645" fill="none" />
+    <!-- Curved Path for Right Banner Text -->
+    <path id="rightTextPath" d="M 405 645 C 450 610, 540 550, 645 520" fill="none" />
+
+    <text font-family="'Noto Sans Devanagari', 'Mangal', 'Arial Unicode MS', sans-serif" font-weight="900" font-size="34" fill="#ffffff">
+      <textPath href="#leftTextPath" startOffset="50%" text-anchor="middle">
+        महाजनो येन
+      </textPath>
+    </text>
+
+    <text font-family="'Noto Sans Devanagari', 'Mangal', 'Arial Unicode MS', sans-serif" font-weight="900" font-size="34" fill="#ffffff">
+      <textPath href="#rightTextPath" startOffset="50%" text-anchor="middle">
+        गतः स पन्था
+      </textPath>
+    </text>
+  </g>
+</svg>

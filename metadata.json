@@ -1,0 +1,6 @@
+{
+  "name": "Brahmarishi Satyananda Sannyas Ashram",
+  "description": "Official website for Brahmarishi Satyananda Sannyas Ashram, preserving authentic Kriya Yoga, Bhagavad Gita, Bhagwat Katha, and Guru Parampara teachings from Gadrasini Pahar, West Bengal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
