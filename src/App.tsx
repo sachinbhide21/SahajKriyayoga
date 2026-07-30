@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { SEOHead } from './components/SEOHead';
@@ -27,57 +28,47 @@ import { AudioPlayerBar } from './components/AudioPlayerBar';
 import { FloatingWidgets } from './components/FloatingWidgets';
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState('home');
-
-  const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <LanguageProvider>
       <ThemeProvider>
-        <div className="min-h-screen bg-[#FAF8F5] dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300 font-sans">
-          
-          {/* Dynamic SEO Meta Tags & Schema */}
-          <SEOHead activeSection={activeSection} />
+        <BrowserRouter>
+          <div className="min-h-screen bg-[#FAF8F5] text-slate-800 transition-colors duration-300 font-sans">
+            
+            <SEOHead activeSection="home" />
 
-          {/* Sticky Header */}
-          <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+            <Header />
 
-          {/* Main Homepage Flow */}
-          <main>
-            <HeroBanner onNavigate={scrollToSection} />
-            <AboutAshramSection />
-            <GuruParamparaSection />
-            <PresentGuruSection />
-            <TeachingsSection />
-            <BranchesSection />
-            <EventsCalendar />
-            <GallerySection />
-            <YouTubeSection />
-            <BooksSection />
-            <TestimonialsSection />
-            <DonationSection />
-            <ContactSection />
-            <FAQSection />
-          </main>
+            <main>
+              <Routes>
+                <Route path="/" element={<HeroBanner onNavigate={() => {}} />} />
+                <Route path="/about" element={<AboutAshramSection />} />
+                <Route path="/guru-parampara" element={<GuruParamparaSection />} />
+                <Route path="/present-guru" element={<PresentGuruSection />} />
+                <Route path="/teachings" element={<TeachingsSection />} />
+                <Route path="/kriya-yoga" element={<TeachingsSection />} />
+                <Route path="/branches" element={<BranchesSection />} />
+                <Route path="/events" element={<EventsCalendar />} />
+                <Route path="/gallery" element={<GallerySection />} />
+                <Route path="/youtube" element={<YouTubeSection />} />
+                <Route path="/publications" element={<BooksSection />} />
+                <Route path="/testimonials" element={<TestimonialsSection />} />
+                <Route path="/donate" element={<DonationSection />} />
+                <Route path="/contact" element={<ContactSection />} />
+                <Route path="/faq" element={<FAQSection />} />
+              </Routes>
+            </main>
 
-          {/* Footer */}
-          <Footer onNavigate={scrollToSection} />
+            <Footer onNavigate={() => {}} />
 
-          {/* Global Modals & Overlay Utilities */}
-          <SearchModal />
-          <GuruDetailModal />
-          <EventRegistrationModal />
-          <ElementorCMSGuideModal />
-          <AudioPlayerBar />
-          <FloatingWidgets />
+            <SearchModal />
+            <GuruDetailModal />
+            <EventRegistrationModal />
+            <ElementorCMSGuideModal />
+            <AudioPlayerBar />
+            <FloatingWidgets />
 
-        </div>
+          </div>
+        </BrowserRouter>
       </ThemeProvider>
     </LanguageProvider>
   );

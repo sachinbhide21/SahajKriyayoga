@@ -8,7 +8,7 @@ export const GuruParamparaSection: React.FC = () => {
   const { setSelectedGuruForBio } = useTheme();
 
   return (
-    <section id="guru-parampara" className="py-20 bg-gradient-to-b from-amber-950 via-slate-950 to-amber-950 text-white relative overflow-hidden">
+    <section id="guru-parampara" className="py-20 bg-[#FAF8F5] text-slate-900 relative overflow-hidden">
       
       {/* Background Subtle Mandala Aura */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-500/10 rounded-full blur-[180px] pointer-events-none"></div>
@@ -17,14 +17,14 @@ export const GuruParamparaSection: React.FC = () => {
         
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-widest">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-amber-100 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-widest shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             <span>Unbroken Divine Lineage</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-200 to-amber-400">
+          <h2 className="text-3xl sm:text-5xl font-serif font-extrabold text-amber-800">
             Guru Parampara
           </h2>
-          <p className="text-amber-200/80 text-sm sm:text-base font-quote italic">
+          <p className="text-slate-700/80 text-sm sm:text-base font-quote italic">
             The sacred lineage of Kriya Masters descending from Mahavatar Babaji to present Acharya Paramhans Gyanananda Maharaj.
           </p>
         </div>
@@ -40,7 +40,7 @@ export const GuruParamparaSection: React.FC = () => {
               <div
                 key={guru.id}
                 onClick={() => setSelectedGuruForBio(guru)}
-                className="group relative bg-amber-950/60 dark:bg-slate-900/80 border border-amber-500/30 hover:border-amber-400 rounded-2xl p-5 shadow-2xl backdrop-blur-md transition-all duration-300 transform hover:-translate-y-2 hover:shadow-amber-500/20 cursor-pointer flex flex-col justify-between"
+                className="group relative bg-amber-50/60 border border-amber-200 hover:border-amber-400 rounded-2xl p-5 shadow-2xl backdrop-blur-md transition-all duration-300 transform hover:-translate-y-2 hover:shadow-amber-500/20 cursor-pointer flex flex-col justify-between"
               >
                 {/* Sequence Badge */}
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-serif font-black text-xs shadow-md">
@@ -66,35 +66,35 @@ export const GuruParamparaSection: React.FC = () => {
 
                   {/* Name & Title */}
                   <div className="text-center space-y-1">
-                    <h3 className="font-serif font-bold text-amber-100 text-base group-hover:text-amber-300 transition-colors leading-tight">
+                    <h3 className="font-serif font-bold text-slate-800 text-base group-hover:text-amber-700 transition-colors leading-tight">
                       {guru.name}
                     </h3>
                     {guru.sanskritName && (
-                      <p className="text-[11px] text-amber-400 font-medium">
+                      <p className="text-[11px] text-amber-600 font-medium">
                         {guru.sanskritName}
                       </p>
                     )}
-                    <p className="text-[10px] text-amber-300/80 font-mono uppercase tracking-wider">
+                    <p className="text-[10px] text-amber-700/80 font-mono uppercase tracking-wider">
                       {guru.period}
                     </p>
                   </div>
 
                   {/* Key Title Tag */}
                   <div className="mt-3 text-center">
-                    <span className="inline-block px-2.5 py-1 rounded-md bg-amber-900/50 border border-amber-500/20 text-[10px] text-amber-200 line-clamp-2">
+                    <span className="inline-block px-2.5 py-1 rounded-md bg-amber-100 border border-amber-300 text-[10px] text-amber-900 font-medium line-clamp-2">
                       {guru.title}
                     </span>
                   </div>
 
                   {/* Short Quote Preview */}
-                  <p className="mt-3 text-[11px] text-amber-200/70 italic font-quote line-clamp-3 text-center">
+                  <p className="mt-3 text-[11px] text-slate-700/70 italic font-quote line-clamp-3 text-center">
                     "{guru.quote}"
                   </p>
                 </div>
 
                 {/* Read Bio Button */}
-                <div className="mt-4 pt-3 border-t border-amber-500/20 text-center">
-                  <span className="inline-flex items-center space-x-1 text-[11px] font-bold text-amber-400 group-hover:text-amber-200 uppercase tracking-wider">
+                <div className="mt-4 pt-3 border-t border-amber-200 text-center">
+                  <span className="inline-flex items-center space-x-1 text-[11px] font-bold text-amber-700 group-hover:text-amber-900 uppercase tracking-wider">
                     <span>Read Biography</span>
                     <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                   </span>
@@ -106,9 +106,9 @@ export const GuruParamparaSection: React.FC = () => {
         </div>
 
         {/* Down Arrow / Flow Explanation */}
-        <div className="mt-12 text-center text-xs text-amber-300/80 space-y-1">
+        <div className="mt-12 text-center text-xs text-amber-700/80 space-y-1">
           <p className="font-medium uppercase tracking-widest">Unbroken Lineage of Kriya Realization</p>
-          <p className="text-amber-200/60">Click on any Master to view their detailed divine life story & teachings.</p>
+          <p className="text-slate-700/60">Click on any Master to view their detailed divine life story & teachings.</p>
         </div>
 
       </div>

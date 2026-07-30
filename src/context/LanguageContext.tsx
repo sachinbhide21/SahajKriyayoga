@@ -32,7 +32,7 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     contact: "Contact Us",
     faq: "FAQ",
     search: "Search",
-    khud_ko_jano: "Khud Ko Jano",
+    khud_ko_jano: "Know Thyself",
     khud_ko_jano_sub: "Know Thyself — Realize your divine eternal essence",
     phone_label: "Call Us",
     upcoming_camp: "Upcoming Spiritual Camp",

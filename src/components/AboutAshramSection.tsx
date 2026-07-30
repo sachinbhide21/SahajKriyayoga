@@ -64,7 +64,7 @@ export const AboutAshramSection: React.FC = () => {
   const currentSlide = SANCTUARY_SLIDES[currentIndex];
 
   return (
-    <section id="about" className="py-20 bg-[#FAF8F5] dark:bg-slate-900 transition-colors duration-300">
+    <section id="about" className="py-20 bg-[#FAF8F5] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -72,14 +72,14 @@ export const AboutAshramSection: React.FC = () => {
           <div className="mx-auto w-16 h-16 flex items-center justify-center">
             <img src="/images/logo.svg" alt="Ashram Official Logo" className="w-full h-full object-contain filter drop-shadow-md" referrerPolicy="no-referrer" />
           </div>
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             <span>Sacred Sanctuary of Kriya Yoga</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-slate-900 dark:text-amber-100 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-slate-900 tracking-tight">
             About Brahmarishi Satyananda Sannyas Ashram
           </h2>
-          <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Established at the holy foothills of Gadrasini Pahar in 1971 to preserve and propagate the authentic Kriya Yoga tradition.
           </p>
         </div>
@@ -90,7 +90,7 @@ export const AboutAshramSection: React.FC = () => {
           {/* Continuous Auto Slider Container */}
           <div className="lg:col-span-5 relative">
             <div 
-              className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 group aspect-[4/3] bg-slate-900"
+              className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white group aspect-[4/3] bg-slate-50"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -116,7 +116,7 @@ export const AboutAshramSection: React.FC = () => {
               <button
                 onClick={goToPrev}
                 aria-label="Previous sanctuary image"
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-amber-600 text-white backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110"
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 hover:bg-amber-100 text-slate-800 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110 border border-amber-200"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -124,7 +124,7 @@ export const AboutAshramSection: React.FC = () => {
               <button
                 onClick={goToNext}
                 aria-label="Next sanctuary image"
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-amber-600 text-white backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110"
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 hover:bg-amber-100 text-slate-800 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg hover:scale-110 border border-amber-200"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -134,21 +134,21 @@ export const AboutAshramSection: React.FC = () => {
                 <button
                   onClick={() => setIsAutoPlaying(!isAutoPlaying)}
                   title={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
-                  className="p-1.5 rounded-full bg-black/50 text-white/90 hover:text-amber-300 backdrop-blur-md transition-colors"
+                  className="p-1.5 rounded-full bg-white/80 text-slate-800 hover:bg-amber-100 hover:text-amber-700 backdrop-blur-md transition-colors border border-amber-200"
                 >
                   {isAutoPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
                 </button>
-                <span className="px-2.5 py-1 rounded-full bg-black/50 text-amber-200 text-[11px] font-mono backdrop-blur-md font-bold tracking-wider">
+                <span className="px-2.5 py-1 rounded-full bg-white/80 text-slate-800 text-[11px] font-mono backdrop-blur-md font-bold tracking-wider border border-amber-200">
                   {currentIndex + 1} / {SANCTUARY_SLIDES.length}
                 </span>
               </div>
 
               {/* Floating Badge / Caption on Active Slide */}
-              <div className="absolute bottom-4 left-4 right-4 z-20 p-3.5 rounded-2xl bg-black/60 dark:bg-slate-900/80 backdrop-blur-md shadow-lg border border-amber-500/30 text-white transition-all duration-300">
-                <p className="text-xs sm:text-sm font-serif font-bold text-amber-300 truncate">
+              <div className="absolute bottom-4 left-4 right-4 z-20 p-3.5 rounded-2xl bg-white/95 backdrop-blur-md shadow-lg border border-amber-200 text-slate-800 transition-all duration-300">
+                <p className="text-xs sm:text-sm font-serif font-bold text-amber-900 truncate">
                   {currentSlide.title}
                 </p>
-                <p className="text-[11px] text-slate-200/90 mt-0.5 truncate">
+                <p className="text-[11px] text-slate-600 mt-0.5 truncate">
                   {currentSlide.subtitle}
                 </p>
 
@@ -160,7 +160,7 @@ export const AboutAshramSection: React.FC = () => {
                       onClick={() => setCurrentIndex(idx)}
                       aria-label={`Go to slide ${idx + 1}`}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
-                        idx === currentIndex ? 'w-6 bg-amber-400' : 'w-1.5 bg-white/40 hover:bg-white/70'
+                        idx === currentIndex ? 'w-6 bg-amber-500' : 'w-1.5 bg-slate-300 hover:bg-slate-400'
                       }`}
                     />
                   ))}
@@ -169,21 +169,21 @@ export const AboutAshramSection: React.FC = () => {
             </div>
 
             {/* Accent Gold Badge */}
-            <div className="absolute -top-4 -left-4 z-30 bg-gradient-to-br from-amber-500 to-amber-700 text-white p-3.5 rounded-2xl shadow-xl hidden sm:block border border-amber-300/40">
+            <div className="absolute -top-4 -left-4 z-30 bg-gradient-to-br from-amber-500 to-amber-700 text-slate-800 p-3.5 rounded-2xl shadow-xl hidden sm:block border border-amber-300/40">
               <p className="text-xl font-serif font-extrabold leading-none">50+</p>
-              <p className="text-[9px] font-semibold uppercase tracking-wider mt-1 text-amber-100">Years of Sadhana</p>
+              <p className="text-[9px] font-semibold uppercase tracking-wider mt-1 text-slate-800">Years of Sadhana</p>
             </div>
           </div>
 
           {/* Text Right */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-              <p className="font-serif font-bold text-amber-800 dark:text-amber-400 text-lg">
+            <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
+              <p className="font-serif font-bold text-amber-800 text-lg">
                 Brahmarishi Satyananda Sannyas Ashram is a traditional Kriya Yoga Ashram founded in 1971 by Param Pujya Swami Jagadananda Giri Maharaj at the sacred foothills of Gadrasini Pahar near Belpahari, West Bengal.
               </p>
 
               <p>
-                The Ashram was established in the divine memory of his beloved Guru, <strong className="text-amber-900 dark:text-amber-200 font-semibold">Brahmarishi Swami Satyananda Giri Maharaj</strong>. It preserves the authentic, unadulterated Kriya Yoga tradition received through the unbroken Guru Parampara descending directly from Mahavatar Babaji.
+                The Ashram was established in the divine memory of his beloved Guru, <strong className="text-amber-900 font-semibold">Brahmarishi Swami Satyananda Giri Maharaj</strong>. It preserves the authentic, unadulterated Kriya Yoga tradition received through the unbroken Guru Parampara descending directly from Mahavatar Babaji.
               </p>
 
               <p>
@@ -193,35 +193,35 @@ export const AboutAshramSection: React.FC = () => {
 
             {/* Key Ashram Highlights List */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-              <div className="flex items-start space-x-2.5 p-3 rounded-xl bg-amber-50 dark:bg-slate-800/60 border border-amber-200/60 dark:border-slate-700">
+              <div className="flex items-start space-x-2.5 p-3 rounded-xl bg-amber-50 border border-amber-200/60 ">
                 <CheckCircle2 className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-xs text-amber-950 dark:text-amber-200 uppercase tracking-wide">Authentic Lineage</h4>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">Direct Kriya techniques from Babaji & Lahiri Mahasaya.</p>
+                  <h4 className="font-bold text-xs text-amber-950 uppercase tracking-wide">Authentic Lineage</h4>
+                  <p className="text-xs text-slate-600 ">Direct Kriya techniques from Babaji & Lahiri Mahasaya.</p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-2.5 p-3 rounded-xl bg-amber-50 dark:bg-slate-800/60 border border-amber-200/60 dark:border-slate-700">
+              <div className="flex items-start space-x-2.5 p-3 rounded-xl bg-amber-50 border border-amber-200/60 ">
                 <CheckCircle2 className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-xs text-amber-950 dark:text-amber-200 uppercase tracking-wide">Sacred Environment</h4>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">Gadrasini Pahar hill silence for quiet Dhyana.</p>
+                  <h4 className="font-bold text-xs text-amber-950 uppercase tracking-wide">Sacred Environment</h4>
+                  <p className="text-xs text-slate-600 ">Gadrasini Pahar hill silence for quiet Dhyana.</p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-2.5 p-3 rounded-xl bg-amber-50 dark:bg-slate-800/60 border border-amber-200/60 dark:border-slate-700">
+              <div className="flex items-start space-x-2.5 p-3 rounded-xl bg-amber-50 border border-amber-200/60 ">
                 <CheckCircle2 className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-xs text-amber-950 dark:text-amber-200 uppercase tracking-wide">Seva & Annadaana</h4>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">Daily free meals for devotees & medical camps.</p>
+                  <h4 className="font-bold text-xs text-amber-950 uppercase tracking-wide">Seva & Annadaana</h4>
+                  <p className="text-xs text-slate-600 ">Daily free meals for devotees & medical camps.</p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-2.5 p-3 rounded-xl bg-amber-50 dark:bg-slate-800/60 border border-amber-200/60 dark:border-slate-700">
+              <div className="flex items-start space-x-2.5 p-3 rounded-xl bg-amber-50 border border-amber-200/60 ">
                 <CheckCircle2 className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-xs text-amber-950 dark:text-amber-200 uppercase tracking-wide">All-India Devotees</h4>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">Thousands associated across West Bengal, MP, Gujarat & Uttarakhand.</p>
+                  <h4 className="font-bold text-xs text-amber-950 uppercase tracking-wide">All-India Devotees</h4>
+                  <p className="text-xs text-slate-600 ">Thousands associated across West Bengal, MP, Gujarat & Uttarakhand.</p>
                 </div>
               </div>
             </div>
@@ -230,7 +230,7 @@ export const AboutAshramSection: React.FC = () => {
             <div className="pt-2">
               <button
                 onClick={() => setShowFullHistory(!showFullHistory)}
-                className="inline-flex items-center space-x-2 px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider text-white bg-amber-800 hover:bg-amber-900 dark:bg-amber-700 dark:hover:bg-amber-600 transition-colors shadow-md"
+                className="inline-flex items-center space-x-2 px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider text-white bg-amber-800 hover:bg-amber-900 :bg-amber-600 transition-colors shadow-md"
               >
                 <span>{showFullHistory ? 'Show Less' : 'Learn More About Ashram History'}</span>
                 <ArrowRight className={`w-4 h-4 transition-transform ${showFullHistory ? 'rotate-90' : ''}`} />
@@ -239,8 +239,8 @@ export const AboutAshramSection: React.FC = () => {
 
             {/* Expandable History Content */}
             {showFullHistory && (
-              <div className="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-amber-200 dark:border-slate-700 space-y-4 text-xs sm:text-sm text-slate-700 dark:text-slate-300 animate-fade-in shadow-xl">
-                <h3 className="font-serif font-bold text-amber-900 dark:text-amber-300 text-base">
+              <div className="p-6 rounded-2xl bg-white border border-amber-200 space-y-4 text-xs sm:text-sm text-slate-700 animate-fade-in shadow-xl">
+                <h3 className="font-serif font-bold text-amber-900 text-base">
                   Detailed History of Belpahari Ashram
                 </h3>
                 <p>
@@ -259,39 +259,39 @@ export const AboutAshramSection: React.FC = () => {
         {/* Our Vision & Our Mission Block */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Our Vision Card */}
-          <div className="relative p-8 rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/50 to-amber-100/60 dark:from-slate-800 dark:via-slate-800/90 dark:to-amber-950/40 border border-amber-200/80 dark:border-amber-900/50 shadow-lg hover:shadow-xl transition-all duration-300">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-200/20 dark:bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+          <div className="relative p-8 rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/50 to-amber-100/60 border border-amber-200/80 shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-200/20 rounded-full blur-2xl pointer-events-none"></div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center shadow-md shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 text-slate-800 flex items-center justify-center shadow-md shrink-0">
                 <Compass className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Guiding Light</span>
-                <h3 className="text-2xl font-serif font-bold text-slate-900 dark:text-amber-100">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 ">Guiding Light</span>
+                <h3 className="text-2xl font-serif font-bold text-slate-900 ">
                   {t('our_vision')}
                 </h3>
               </div>
             </div>
-            <p className="text-slate-700 dark:text-slate-200 text-base leading-relaxed font-serif italic border-l-4 border-amber-500 pl-4 py-1">
+            <p className="text-slate-700 text-base leading-relaxed font-serif italic border-l-4 border-amber-500 pl-4 py-1">
               "{t('vision_text')}"
             </p>
           </div>
 
           {/* Our Mission Card */}
-          <div className="relative p-8 rounded-3xl bg-gradient-to-br from-amber-50 via-amber-100/50 to-orange-50/60 dark:from-slate-800 dark:via-slate-800/90 dark:to-amber-950/40 border border-amber-200/80 dark:border-amber-900/50 shadow-lg hover:shadow-xl transition-all duration-300">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-200/20 dark:bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+          <div className="relative p-8 rounded-3xl bg-gradient-to-br from-amber-50 via-amber-100/50 to-orange-50/60 border border-amber-200/80 shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-200/20 rounded-full blur-2xl pointer-events-none"></div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-800 text-white flex items-center justify-center shadow-md shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-800 text-slate-800 flex items-center justify-center shadow-md shrink-0">
                 <Target className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">Sacred Purpose</span>
-                <h3 className="text-2xl font-serif font-bold text-slate-900 dark:text-amber-100">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 ">Sacred Purpose</span>
+                <h3 className="text-2xl font-serif font-bold text-slate-900 ">
                   {t('our_mission')}
                 </h3>
               </div>
             </div>
-            <p className="text-slate-700 dark:text-slate-200 text-base leading-relaxed font-serif italic border-l-4 border-amber-600 pl-4 py-1">
+            <p className="text-slate-700 text-base leading-relaxed font-serif italic border-l-4 border-amber-600 pl-4 py-1">
               "{t('mission_text')}"
             </p>
           </div>

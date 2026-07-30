@@ -39,7 +39,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
   const activeCentre = centres.find((c) => c.id === (hoveredCentreId || selectedCentreId)) || centres[0];
 
   return (
-    <div className="bg-gradient-to-br from-amber-950 via-slate-900 to-amber-900 text-amber-50 rounded-3xl p-6 sm:p-8 shadow-2xl border border-amber-500/30 overflow-hidden relative">
+    <div className="bg-[#FAF8F5] text-amber-50 rounded-3xl p-6 sm:p-8 shadow-2xl border border-amber-200 overflow-hidden relative">
       
       {/* Decorative ambient lighting */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -48,29 +48,29 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
       {/* Header Bar inside Map */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 relative z-10">
         <div>
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider border border-amber-400/30">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-700 text-xs font-bold uppercase tracking-wider border border-amber-400/30">
             <Compass className="w-3.5 h-3.5 text-amber-400 animate-spin-slow" />
             <span>Interactive Sacred Geography</span>
           </div>
-          <h3 className="text-xl sm:text-2xl font-serif font-bold text-amber-100 mt-1">
+          <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-800 mt-1">
             Ashram Centres Map of India
           </h3>
-          <p className="text-xs text-amber-200/80">
+          <p className="text-xs text-slate-700/80">
             Click any pin to inspect the centre details and get Google Maps directions.
           </p>
         </div>
 
         {/* Map Legend */}
-        <div className="flex items-center space-x-4 text-xs bg-slate-900/80 backdrop-blur-md px-3.5 py-2 rounded-xl border border-amber-500/30 shrink-0">
+        <div className="flex items-center space-x-4 text-xs bg-slate-50/80 backdrop-blur-md px-3.5 py-2 rounded-xl border border-amber-200 shrink-0">
           <div className="flex items-center space-x-1.5">
             <span className="w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b] flex items-center justify-center">
               <Crown className="w-2 h-2 text-slate-950" />
             </span>
-            <span className="text-amber-200 font-semibold">Headquarters</span>
+            <span className="text-slate-700 font-semibold">Headquarters</span>
           </div>
           <div className="flex items-center space-x-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
-            <span className="text-amber-200/90">Branch Centres</span>
+            <span className="text-slate-700/90">Branch Centres</span>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
         
         {/* SVG Map Canvas Column */}
-        <div className="lg:col-span-7 relative flex justify-center items-center bg-slate-950/60 rounded-2xl p-4 border border-amber-500/20">
+        <div className="lg:col-span-7 relative flex justify-center items-center bg-white/60 rounded-2xl p-4 border border-amber-500/20">
           <svg
             viewBox="0 0 600 650"
             className="w-full max-w-[480px] h-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
@@ -234,7 +234,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
                         className={`px-2 py-0.5 rounded-full text-[10px] font-bold whitespace-nowrap shadow-md border transition-all ${
                           isSelected || isHovered
                             ? 'bg-amber-400 text-slate-950 border-white scale-110'
-                            : 'bg-slate-900/90 text-amber-200 border-amber-500/40'
+                            : 'bg-slate-50/90 text-slate-700 border-amber-500/40'
                         }`}
                       >
                         {centre.branchName || centre.name.split(' ')[0]}
@@ -248,27 +248,27 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
         </div>
 
         {/* Selected Centre Interactive Feature Box */}
-        <div className="lg:col-span-5 bg-slate-900/90 backdrop-blur-md rounded-2xl p-6 border border-amber-500/30 space-y-4 relative">
+        <div className="lg:col-span-5 bg-slate-50/90 backdrop-blur-md rounded-2xl p-6 border border-amber-200 space-y-4 relative">
           
           <div className="flex items-center justify-between">
             <span
               className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                 activeCentre.isHeadquarters
                   ? 'bg-amber-400 text-slate-950 shadow-md flex items-center gap-1'
-                  : 'bg-amber-900/60 text-amber-300 border border-amber-700/60'
+                  : 'bg-amber-900/60 text-amber-700 border border-amber-700/60'
               }`}
             >
               {activeCentre.isHeadquarters && <Crown className="w-3.5 h-3.5" />}
               <span>{activeCentre.isHeadquarters ? 'Main Headquarters' : activeCentre.state}</span>
             </span>
 
-            <span className="text-xs text-amber-200/70 flex items-center gap-1">
+            <span className="text-xs text-slate-700/70 flex items-center gap-1">
               <MapPin className="w-3.5 h-3.5 text-amber-400" />
               <span>{activeCentre.state}</span>
             </span>
           </div>
 
-          <div className="rounded-xl overflow-hidden border border-amber-500/30 h-40 relative group">
+          <div className="rounded-xl overflow-hidden border border-amber-200 h-40 relative group">
             <img
               src={activeCentre.image}
               alt={activeCentre.name}
@@ -280,13 +280,13 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-            <div className="absolute bottom-2 left-3 right-3 text-xs text-amber-100 font-medium">
+            <div className="absolute bottom-2 left-3 right-3 text-xs text-slate-800 font-medium">
               📍 {activeCentre.location}
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-serif font-bold text-amber-100 leading-snug">
+            <h4 className="text-lg font-serif font-bold text-slate-800 leading-snug">
               {activeCentre.name}
             </h4>
             {activeCentre.branchName && (
@@ -296,7 +296,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
             )}
           </div>
 
-          <p className="text-xs text-amber-100/80 leading-relaxed line-clamp-3">
+          <p className="text-xs text-slate-800/80 leading-relaxed line-clamp-3">
             {activeCentre.description}
           </p>
 
@@ -306,13 +306,13 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
               {activeCentre.activities.slice(0, 4).map((act, i) => (
                 <span
                   key={i}
-                  className="px-2 py-0.5 rounded-md bg-amber-950/80 text-amber-200 text-[10px] border border-amber-700/50"
+                  className="px-2 py-0.5 rounded-md bg-amber-50/80 text-slate-700 text-[10px] border border-amber-700/50"
                 >
                   ✨ {act}
                 </span>
               ))}
               {activeCentre.activities.length > 4 && (
-                <span className="px-2 py-0.5 rounded-md bg-slate-800 text-amber-300 text-[10px]">
+                <span className="px-2 py-0.5 rounded-md bg-slate-800 text-amber-700 text-[10px]">
                   +{activeCentre.activities.length - 4} more
                 </span>
               )}
@@ -344,7 +344,7 @@ export const IndiaMap: React.FC<IndiaMapProps> = ({
               }`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-bold text-amber-100 bg-amber-900/60 hover:bg-amber-800/80 border border-amber-500/40 transition-colors"
+              className="flex-1 inline-flex items-center justify-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-800 bg-amber-900/60 hover:bg-amber-800/80 border border-amber-500/40 transition-colors"
             >
               <Navigation className="w-3.5 h-3.5 text-amber-400" />
               <span>Get Directions</span>

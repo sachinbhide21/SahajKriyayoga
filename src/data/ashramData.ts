@@ -19,7 +19,7 @@ export const ASHRAM_INFO = {
   founder: "Param Pujya Swami Jagadananda Giri Maharaj",
   inMemoryOf: "Brahmarishi Swami Satyananda Giri Maharaj",
   presentGuru: "Paramhans Gyanananda Maharaj",
-  guidingMessage: "Khud Ko Jano",
+  guidingMessage: "Know Thyself",
   guidingMessageEn: "Know Thyself — Realize Your Inner Divine Essence",
   vision: "To preserve the sacred light of Kriya Yoga and Guru Parampara, guiding seekers toward self-realization, inner peace, and the timeless truth of “Know Yourself.”",
   mission: "To nurture sincere spiritual seekers through Kriya Yoga, meditation, scriptural wisdom, satsang, seva, and disciplined ashram life.",
@@ -1509,12 +1509,12 @@ export const TEACHINGS: TeachingItem[] = [
   },
   {
     id: "self-realization",
-    title: "Self Realization — 'Khud Ko Jano'",
+    title: "Self Realization — 'Know Thyself'",
     hindiTitle: "आत्मज्ञान — खुद को जानो",
     bengaliTitle: "আত্মজ্ঞান — নিজেকে জানো",
     subtitle: "Discovering Your True Unchanging Divine Nature",
     shortDescription: "The direct call of Paramhans Gyanananda Maharaj to transcend temporary body-mind identity and abide in pure Atman.",
-    fullDescription: "'Khud Ko Jano' (Know Thyself) is the heart message of the present Acharya. By turning the outward-seeking senses inward through silent Kriya meditation, one transcends illusions of mortality and realizes the infinite bliss inherent within.",
+    fullDescription: "'Know Thyself' is the heart message of the present Acharya. By turning the outward-seeking senses inward through silent Kriya meditation, one transcends illusions of mortality and realizes the infinite bliss inherent within.",
     iconName: "Sparkles",
     benefits: [
       "Permanent freedom from spiritual ignorance.",
@@ -1992,7 +1992,7 @@ export const TESTIMONIALS: DevoteeTestimonial[] = [
     name: "Sunita Sharma",
     location: "Ahmedabad, Gujarat",
     associationYears: 12,
-    quote: "Listening to Paramhans Gyanananda Maharaj's Gita Kathas opened the spiritual light in my family. 'Khud Ko Jano' is our daily guiding compass.",
+    quote: "Listening to Paramhans Gyanananda Maharaj's Gita Kathas opened the spiritual light in my family. 'Know Thyself' is our daily guiding compass.",
     fullStory: "We attend the Jalampur branch regularly. The Ashram's emphasis on genuine spiritual practice without commercial showmanship is truly rare and inspiring.",
     roleOrProfession: "Educationist & Devotee"
   },
