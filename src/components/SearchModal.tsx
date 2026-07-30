@@ -26,18 +26,18 @@ export const SearchModal: React.FC = () => {
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-slate-950/80 backdrop-blur-md animate-fade-in">
-      <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-2xl w-full p-6 border border-amber-300 dark:border-slate-700 shadow-2xl relative max-h-[80vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-white/80 backdrop-blur-md animate-fade-in">
+      <div className="bg-white rounded-3xl max-w-2xl w-full p-6 border border-amber-300 shadow-2xl relative max-h-[80vh] flex flex-col">
         
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-amber-200 dark:border-slate-800">
-          <div className="flex items-center space-x-2 text-amber-800 dark:text-amber-300 font-serif font-bold text-lg">
+        <div className="flex items-center justify-between pb-4 border-b border-amber-200 ">
+          <div className="flex items-center space-x-2 text-amber-800 font-serif font-bold text-lg">
             <Search className="w-5 h-5 text-amber-600" />
             <span>Search Ashram Website</span>
           </div>
           <button
             onClick={() => setIsSearchOpen(false)}
-            className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-amber-100"
+            className="p-2 rounded-full bg-slate-100 text-slate-600 hover:bg-amber-100"
           >
             <X className="w-5 h-5" />
           </button>
@@ -51,7 +51,7 @@ export const SearchModal: React.FC = () => {
             placeholder="Type to search (e.g., Kriya Yoga, Babaji, Gita, Belpahari, Guru Purnima)..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full px-4 py-3 rounded-2xl border border-amber-300 dark:border-slate-700 bg-amber-50 dark:bg-slate-800 text-sm text-slate-900 dark:text-white"
+            className="w-full px-4 py-3 rounded-2xl border border-amber-300 bg-amber-50 text-sm text-slate-900 "
           />
         </div>
 
@@ -61,17 +61,17 @@ export const SearchModal: React.FC = () => {
           {/* Gurus */}
           {filteredGurus.length > 0 && (
             <div className="space-y-2">
-              <p className="font-bold text-amber-800 dark:text-amber-400 uppercase tracking-wider">Guru Parampara Masters ({filteredGurus.length})</p>
+              <p className="font-bold text-amber-800 uppercase tracking-wider">Guru Parampara Masters ({filteredGurus.length})</p>
               {filteredGurus.map(guru => (
                 <div
                   key={guru.id}
                   onClick={() => { setSelectedGuruForBio(guru); setIsSearchOpen(false); }}
-                  className="p-3 rounded-xl bg-amber-50 dark:bg-slate-800 hover:bg-amber-100 cursor-pointer flex items-center justify-between"
+                  className="p-3 rounded-xl bg-amber-50 hover:bg-amber-100 cursor-pointer flex items-center justify-between"
                 >
                   <div className="flex items-center space-x-3">
                     <User className="w-4 h-4 text-amber-600" />
                     <div>
-                      <p className="font-serif font-bold text-slate-900 dark:text-amber-100">{guru.name}</p>
+                      <p className="font-serif font-bold text-slate-900 ">{guru.name}</p>
                       <p className="text-[10px] text-slate-500">{guru.title}</p>
                     </div>
                   </div>
@@ -84,12 +84,12 @@ export const SearchModal: React.FC = () => {
           {/* Teachings */}
           {filteredTeachings.length > 0 && (
             <div className="space-y-2">
-              <p className="font-bold text-amber-800 dark:text-amber-400 uppercase tracking-wider">Ashram Teachings ({filteredTeachings.length})</p>
+              <p className="font-bold text-amber-800 uppercase tracking-wider">Ashram Teachings ({filteredTeachings.length})</p>
               {filteredTeachings.map(t => (
-                <div key={t.id} className="p-3 rounded-xl bg-amber-50 dark:bg-slate-800 flex items-center space-x-3">
+                <div key={t.id} className="p-3 rounded-xl bg-amber-50 flex items-center space-x-3">
                   <Flame className="w-4 h-4 text-amber-600 shrink-0" />
                   <div>
-                    <p className="font-bold text-slate-900 dark:text-amber-100">{t.title}</p>
+                    <p className="font-bold text-slate-900 ">{t.title}</p>
                     <p className="text-[10px] text-slate-500">{t.subtitle}</p>
                   </div>
                 </div>
@@ -100,17 +100,17 @@ export const SearchModal: React.FC = () => {
           {/* Events */}
           {filteredEvents.length > 0 && (
             <div className="space-y-2">
-              <p className="font-bold text-amber-800 dark:text-amber-400 uppercase tracking-wider">Upcoming Events ({filteredEvents.length})</p>
+              <p className="font-bold text-amber-800 uppercase tracking-wider">Upcoming Events ({filteredEvents.length})</p>
               {filteredEvents.map(ev => (
                 <div
                   key={ev.id}
                   onClick={() => { setSelectedEventForReg(ev); setIsSearchOpen(false); }}
-                  className="p-3 rounded-xl bg-amber-50 dark:bg-slate-800 hover:bg-amber-100 cursor-pointer flex items-center justify-between"
+                  className="p-3 rounded-xl bg-amber-50 hover:bg-amber-100 cursor-pointer flex items-center justify-between"
                 >
                   <div className="flex items-center space-x-3">
                     <Calendar className="w-4 h-4 text-amber-600" />
                     <div>
-                      <p className="font-bold text-slate-900 dark:text-amber-100">{ev.title}</p>
+                      <p className="font-bold text-slate-900 ">{ev.title}</p>
                       <p className="text-[10px] text-slate-500">{ev.startDate} • {ev.location}</p>
                     </div>
                   </div>
@@ -123,12 +123,12 @@ export const SearchModal: React.FC = () => {
           {/* Books */}
           {filteredBooks.length > 0 && (
             <div className="space-y-2">
-              <p className="font-bold text-amber-800 dark:text-amber-400 uppercase tracking-wider">Publications ({filteredBooks.length})</p>
+              <p className="font-bold text-amber-800 uppercase tracking-wider">Publications ({filteredBooks.length})</p>
               {filteredBooks.map(b => (
-                <div key={b.id} className="p-3 rounded-xl bg-amber-50 dark:bg-slate-800 flex items-center space-x-3">
+                <div key={b.id} className="p-3 rounded-xl bg-amber-50 flex items-center space-x-3">
                   <BookOpen className="w-4 h-4 text-amber-600 shrink-0" />
                   <div>
-                    <p className="font-bold text-slate-900 dark:text-amber-100">{b.title}</p>
+                    <p className="font-bold text-slate-900 ">{b.title}</p>
                     <p className="text-[10px] text-slate-500">By {b.author}</p>
                   </div>
                 </div>

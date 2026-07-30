@@ -58,7 +58,7 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isElementorGuideOpen, setIsElementorGuideOpen] = useState(false);
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
@@ -68,16 +68,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [activeAudioTrack, setActiveAudioTrack] = useState<AudioTrack | null>(null);
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
 
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
-
   const toggleDarkMode = () => {
-    setIsDarkMode(prev => !prev);
+    // Dark mode is disabled based on user request for a strictly light, humanized theme
   };
 
   const toggleAudioPlay = (track?: AudioTrack) => {

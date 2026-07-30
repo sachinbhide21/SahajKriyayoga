@@ -37,19 +37,19 @@ export const GallerySection: React.FC = () => {
   };
 
   return (
-    <section id="gallery" className="py-20 bg-[#FAF8F5] dark:bg-slate-900 transition-colors duration-300">
+    <section id="gallery" className="py-20 bg-[#FAF8F5] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-900 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             <span>Divine Visual Moments</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-slate-900 dark:text-amber-100">
+          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-slate-900 ">
             Ashram Photo Gallery
           </h2>
-          <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base">
+          <p className="text-slate-600 text-sm sm:text-base">
             Glimpses of Gadrasini Pahar, Guru Satsangs, Kriya camps, and devotional celebrations.
           </p>
         </div>
@@ -63,7 +63,7 @@ export const GallerySection: React.FC = () => {
               className={`px-4 py-2 rounded-full text-xs font-bold transition-colors ${
                 activeCategory === cat
                   ? 'bg-amber-700 text-white shadow-md'
-                  : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-amber-100'
+                  : 'bg-white text-slate-700 hover:bg-amber-100'
               }`}
             >
               {cat}
@@ -77,7 +77,7 @@ export const GallerySection: React.FC = () => {
             <div
               key={photo.id}
               onClick={() => setLightboxPhotoIndex(index)}
-              className="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer border border-amber-200/60 dark:border-slate-800 bg-slate-900 h-64"
+              className="group relative rounded-2xl overflow-hidden shadow-md cursor-pointer border border-amber-200/60 bg-slate-50 h-64"
             >
               <img
                 src={photo.url}
@@ -91,9 +91,9 @@ export const GallerySection: React.FC = () => {
               />
 
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end text-slate-800">
                 <span className="text-[10px] uppercase font-bold text-amber-400">{photo.category}</span>
-                <h4 className="font-serif font-bold text-sm text-amber-100 leading-tight">{photo.title}</h4>
+                <h4 className="font-serif font-bold text-sm text-slate-800 leading-tight">{photo.title}</h4>
                 <div className="mt-2 text-right">
                   <span className="p-1.5 rounded-full bg-amber-500 text-slate-950 inline-block">
                     <Maximize2 className="w-3.5 h-3.5" />
@@ -108,7 +108,7 @@ export const GallerySection: React.FC = () => {
 
       {/* Lightbox Modal */}
       {currentLightboxPhoto && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md animate-fade-in">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white/90 backdrop-blur-md animate-fade-in">
           
           {/* Close button */}
           <button
@@ -149,9 +149,9 @@ export const GallerySection: React.FC = () => {
               />
             </div>
             
-            <div className="bg-slate-900/80 p-4 rounded-xl border border-amber-500/20 text-white max-w-xl mx-auto">
-              <h3 className="font-serif font-bold text-lg text-amber-300">{currentLightboxPhoto.title}</h3>
-              <p className="text-xs text-amber-100/80 mt-1">{currentLightboxPhoto.caption}</p>
+            <div className="bg-slate-50/80 p-4 rounded-xl border border-amber-500/20 text-slate-800 max-w-xl mx-auto">
+              <h3 className="font-serif font-bold text-lg text-amber-700">{currentLightboxPhoto.title}</h3>
+              <p className="text-xs text-slate-800/80 mt-1">{currentLightboxPhoto.caption}</p>
             </div>
           </div>
 

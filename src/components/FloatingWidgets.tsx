@@ -43,9 +43,9 @@ export const FloatingWidgets: React.FC = () => {
       {/* Floating Donation Button */}
       <button
         onClick={() => setIsDonationModalOpen(true)}
-        className="px-4 py-2.5 rounded-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-white font-bold text-xs flex items-center space-x-1.5 shadow-2xl hover:scale-105 transition-transform border border-amber-300/40"
+        className="px-4 py-2.5 rounded-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-800 font-bold text-xs flex items-center space-x-1.5 shadow-2xl hover:scale-105 transition-transform border border-amber-300/40"
       >
-        <Heart className="w-4 h-4 fill-current text-amber-200 animate-pulse" />
+        <Heart className="w-4 h-4 fill-current text-slate-700 animate-pulse" />
         <span className="hidden sm:inline uppercase tracking-wider">Seva / Donate</span>
       </button>
 
@@ -53,7 +53,7 @@ export const FloatingWidgets: React.FC = () => {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="w-10 h-10 rounded-full bg-slate-900 text-amber-300 border border-amber-500/40 flex items-center justify-center shadow-xl hover:bg-amber-600 hover:text-white transition-all"
+          className="w-10 h-10 rounded-full bg-slate-50 text-amber-700 border border-amber-500/40 flex items-center justify-center shadow-xl hover:bg-amber-600 hover:text-white transition-all"
           title="Back to top"
         >
           <ArrowUp className="w-5 h-5" />

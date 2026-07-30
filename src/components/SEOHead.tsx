@@ -28,7 +28,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ activeSection }) => {
         break;
       case 'present-guru':
         title = `Paramhans Gyanananda Maharaj | Present Acharya`;
-        description = "Life, teachings, and 'Khud Ko Jano' spiritual message of Paramhans Gyanananda Maharaj, Present Spiritual Head of Belpahari Ashram.";
+        description = "Life, teachings, and 'Know Thyself' spiritual message of Paramhans Gyanananda Maharaj, Present Spiritual Head of Belpahari Ashram.";
         break;
       case 'kriya-yoga':
         title = `Kriya Yoga Science & Meditation | Belpahari Ashram`;
