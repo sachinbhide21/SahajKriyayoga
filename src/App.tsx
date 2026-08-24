@@ -8,6 +8,7 @@ import { HeroBanner } from './components/HeroBanner';
 import { AboutAshramSection } from './components/AboutAshramSection';
 import { GuruParamparaSection } from './components/GuruParamparaSection';
 import { PresentGuruSection } from './components/PresentGuruSection';
+import { ChakrasSection } from './components/ChakrasSection';
 import { TeachingsSection } from './components/TeachingsSection';
 import { BranchesSection } from './components/BranchesSection';
 import { EventsCalendar } from './components/EventsCalendar';
@@ -40,7 +41,13 @@ export default function App() {
 
             <main>
               <Routes>
-                <Route path="/" element={<HeroBanner onNavigate={() => {}} />} />
+                <Route path="/" element={
+                  <>
+                    <HeroBanner onNavigate={() => {}} />
+                    <PresentGuruSection />
+                    <ChakrasSection />
+                  </>
+                } />
                 <Route path="/about" element={<AboutAshramSection />} />
                 <Route path="/guru-parampara" element={<GuruParamparaSection />} />
                 <Route path="/present-guru" element={<PresentGuruSection />} />
