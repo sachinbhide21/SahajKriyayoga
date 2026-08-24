@@ -110,7 +110,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onNavigate }) => {
         {/* Key Ashram Highlights Bar */}
         <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto border-t border-amber-200 text-center text-xs">
           <div className="p-3 rounded-xl bg-amber-50 border border-amber-100 shadow-sm">
-            <p className="text-xl sm:text-2xl font-serif font-bold text-amber-700">1971</p>
+            <p className="text-xl sm:text-2xl font-serif font-bold text-amber-700">1970</p>
             <p className="text-slate-700/80 text-[11px]">Founded Year at Belpahari</p>
           </div>
           <div className="p-3 rounded-xl bg-amber-50 border border-amber-100 shadow-sm">
