@@ -1,8 +1,10 @@
 import React from 'react';
 import { Quote, Sparkles, Star } from 'lucide-react';
-import { TESTIMONIALS } from '../data/ashramData';
+import { useWebsiteData } from '../context/WebsiteDataContext';
 
 export const TestimonialsSection: React.FC = () => {
+  const { testimonials } = useWebsiteData();
+
   return (
     <section className="py-20 bg-[#FAF8F5] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,7 +25,7 @@ export const TestimonialsSection: React.FC = () => {
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {TESTIMONIALS.map((t) => (
+          {testimonials.map((t) => (
             <div
               key={t.id}
               className="bg-white rounded-3xl p-7 shadow-lg border border-amber-200/60 flex flex-col justify-between space-y-4"

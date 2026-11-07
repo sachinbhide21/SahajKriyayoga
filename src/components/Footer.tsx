@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MapPin, Phone, Mail, Heart, Send, Sparkles, Layers, ArrowRight, Check } from 'lucide-react';
+import { MapPin, Phone, Mail, Heart, Send, Sparkles, Layers, ArrowRight, Check, Lock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
-import { ASHRAM_INFO } from '../data/ashramData';
+import { useWebsiteData } from '../context/WebsiteDataContext';
 
 interface FooterProps {
   onNavigate?: (sectionId: string) => void;
@@ -13,6 +13,7 @@ export const Footer: React.FC<FooterProps> = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
   const { setIsDonationModalOpen, setIsElementorGuideOpen } = useTheme();
+  const { ashramInfo } = useWebsiteData();
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -89,7 +90,7 @@ export const Footer: React.FC<FooterProps> = () => {
                 />
               </div>
               <h2 className="font-serif font-bold text-lg text-slate-700">
-                {ASHRAM_INFO.name}
+                {ashramInfo.name}
               </h2>
             </div>
 
@@ -100,17 +101,17 @@ export const Footer: React.FC<FooterProps> = () => {
             <div className="space-y-1.5 text-slate-700/90 text-[11px]">
               <p className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>{ASHRAM_INFO.headquarters.hills}, {ASHRAM_INFO.headquarters.town}, West Bengal - {ASHRAM_INFO.headquarters.pinCode}</span>
+                <span>{ashramInfo.headquarters.hills}, {ashramInfo.headquarters.town}, West Bengal - {ashramInfo.headquarters.pinCode}</span>
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <a href={`tel:${ASHRAM_INFO.headquarters.phone}`} className="hover:underline font-bold text-amber-700">
-                  {ASHRAM_INFO.headquarters.phone}
+                <a href={`tel:${ashramInfo.headquarters.phone}`} className="hover:underline font-bold text-amber-700">
+                  {ashramInfo.headquarters.phone}
                 </a>
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>{ASHRAM_INFO.headquarters.email}</span>
+                <span>{ashramInfo.headquarters.email}</span>
               </p>
             </div>
           </div>
@@ -174,8 +175,13 @@ export const Footer: React.FC<FooterProps> = () => {
         </div>
 
         <div className="pt-8 border-t border-amber-900/40 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-700/60 gap-4">
-          <p>© 1971 – 2026 {ASHRAM_INFO.name}. {t('all_rights_reserved')}.</p>
+          <p>© 1971 – 2026 {ashramInfo.name}. {t('all_rights_reserved')}.</p>
           <div className="flex items-center space-x-4">
+            <button onClick={() => { navigate('/admin'); window.scrollTo(0,0); }} className="hover:text-amber-600 font-bold flex items-center gap-1 text-slate-700">
+              <Lock className="w-3 h-3 text-amber-600" />
+              <span>Admin Portal</span>
+            </button>
+            <span>•</span>
             <button onClick={() => { navigate('/about'); window.scrollTo(0,0); }} className="hover:text-amber-400">Privacy Policy</button>
             <span>•</span>
             <button onClick={() => { navigate('/about'); window.scrollTo(0,0); }} className="hover:text-amber-400">Terms of Use</button>

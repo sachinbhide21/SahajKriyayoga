@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { HelpCircle, ChevronDown, Sparkles, Search } from 'lucide-react';
-import { FAQS } from '../data/ashramData';
+import { useWebsiteData } from '../context/WebsiteDataContext';
 
 export const FAQSection: React.FC = () => {
+  const { faqs } = useWebsiteData();
   const [openFaqId, setOpenFaqId] = useState<string | null>('faq-1');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredFaqs = FAQS.filter(
+  const filteredFaqs = faqs.filter(
     f => f.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
          f.answer.toLowerCase().includes(searchTerm.toLowerCase())
   );

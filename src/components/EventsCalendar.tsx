@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { Calendar, MapPin, Clock, User, Sparkles, Filter, CheckCircle2, X } from 'lucide-react';
-import { UPCOMING_EVENTS } from '../data/ashramData';
 import { EventItem } from '../types';
 import { useTheme } from '../context/ThemeContext';
+import { useWebsiteData } from '../context/WebsiteDataContext';
 
 export const EventsCalendar: React.FC = () => {
   const { setSelectedEventForReg } = useTheme();
+  const { events } = useWebsiteData();
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [registeredSuccess, setRegisteredSuccess] = useState(false);
 
   const categories = ['All', 'Festival', 'Kriya Camp', 'Bhagwat Katha', 'Special Event'];
 
   const filteredEvents = activeCategory === 'All'
-    ? UPCOMING_EVENTS
-    : UPCOMING_EVENTS.filter(e => e.category === activeCategory);
+    ? events
+    : events.filter(e => e.category === activeCategory);
 
   return (
     <section id="events" className="py-20 bg-[#F5F0EB] transition-colors duration-300">

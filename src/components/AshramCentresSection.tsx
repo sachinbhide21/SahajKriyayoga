@@ -25,13 +25,14 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
-import { ASHRAM_BRANCHES } from '../data/ashramData';
 import { AshramBranch } from '../types';
 import { IndiaMap } from './IndiaMap';
 import { VisitAshramModal } from './VisitAshramModal';
 import { HeadquartersMainCentre } from './HeadquartersMainCentre';
+import { useWebsiteData } from '../context/WebsiteDataContext';
 
 export const AshramCentresSection: React.FC = () => {
+  const { branches } = useWebsiteData();
   const [selectedCentreId, setSelectedCentreId] = useState<string>('headquarters-belpahari');
   const [activeStateFilter, setActiveStateFilter] = useState<string>('All');
   const [expandedAboutId, setExpandedAboutId] = useState<string | null>('branch-ganjit');
@@ -57,8 +58,8 @@ export const AshramCentresSection: React.FC = () => {
   // Filter centres by state tab
   const filteredCentres =
     activeStateFilter === 'All'
-      ? ASHRAM_BRANCHES
-      : ASHRAM_BRANCHES.filter((c) => c.state === activeStateFilter);
+      ? branches
+      : branches.filter((c) => c.state === activeStateFilter);
 
   const statesList = ['All', 'West Bengal', 'Madhya Pradesh', 'Gujarat', 'Uttarakhand'];
 
@@ -119,7 +120,7 @@ export const AshramCentresSection: React.FC = () => {
           {/* Interactive India Map Box */}
           <div>
             <IndiaMap
-              centres={ASHRAM_BRANCHES}
+              centres={branches}
               selectedCentreId={selectedCentreId}
               onSelectCentre={handleSelectCentre}
             />
@@ -133,8 +134,8 @@ export const AshramCentresSection: React.FC = () => {
             {statesList.map((state) => {
               const count =
                 state === 'All'
-                  ? ASHRAM_BRANCHES.length
-                  : ASHRAM_BRANCHES.filter((c) => c.state === state).length;
+                  ? branches.length
+                  : branches.filter((c) => c.state === state).length;
 
               return (
                 <button

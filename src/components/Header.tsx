@@ -14,12 +14,13 @@ import {
   Calendar,
   Layers,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Lock
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
-import { ASHRAM_INFO } from '../data/ashramData';
+import { useWebsiteData } from '../context/WebsiteDataContext';
 import { Language } from '../types';
 
 export const Header: React.FC = () => {
@@ -31,6 +32,7 @@ export const Header: React.FC = () => {
     isPlayingAudio,
     toggleAudioPlay
   } = useTheme();
+  const { ashramInfo, notices } = useWebsiteData();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -39,19 +41,10 @@ export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
-  const notices = [
-    "🌸 Upcoming Spiritual Camp: 3-Day Intensive Kriya Yoga Sadhana Retreat at Belpahari",
-    "🌺 Grand Guru Purnima Mahotsav 2027 at Belpahari Headquarters Ashram",
-    "📖 Srimad Bhagwat Katha Saptah on Holy Narmada River Banks, Nanpa",
-    "🚩 Gita Jayanti & Youth Spiritual Conclave at Jalampur Ashram",
-    "🌊 Sacred Narmada Jayanti Festival at Nanpa Branch, Narmadapuram",
-    "📜 Weekly Bhagavad Gita Classes every Sunday Morning",
-    "🕉️ Daily Satsang & Morning Kriya Meditation 06:00 AM - 08:00 AM"
-  ];
-
   const [currentNoticeIndex, setCurrentNoticeIndex] = useState(0);
 
   useEffect(() => {
+    if (notices.length === 0) return;
     const timer = setInterval(() => {
       setCurrentNoticeIndex((prev) => (prev + 1) % notices.length);
     }, 4500);
@@ -214,6 +207,18 @@ export const Header: React.FC = () => {
               <Layers className="w-3.5 h-3.5 text-amber-700" />
               <span>CMS Guide</span>
             </button>
+
+            <span className="text-amber-600/60">|</span>
+
+            {/* Admin Panel Direct Link */}
+            <button
+              onClick={() => navigate('/admin')}
+              className="flex items-center space-x-1 px-2.5 py-1 rounded-full bg-amber-700 hover:bg-amber-800 text-white transition-all text-[11px] font-bold shadow-sm"
+              title="Open Ashram Admin Panel"
+            >
+              <Lock className="w-3 h-3 text-amber-200" />
+              <span>Admin</span>
+            </button>
           </div>
 
         </div>
@@ -240,11 +245,11 @@ export const Header: React.FC = () => {
 
             <div>
               <h1 className={`font-serif font-bold tracking-tight text-base sm:text-lg leading-tight transition-colors ${isScrolled ? 'text-slate-800' : 'text-amber-950 '}`}>
-                {ASHRAM_INFO.name}
+                {ashramInfo.name}
               </h1>
               <p className={`text-[11px] font-medium tracking-wide flex items-center gap-1.5 ${isScrolled ? 'text-amber-700/90' : 'text-amber-700 '}`}>
                 <MapPin className="w-3 h-3 text-amber-500 shrink-0" />
-                <span>{ASHRAM_INFO.headquarters.hills}, {ASHRAM_INFO.headquarters.town}, West Bengal</span>
+                <span>{ashramInfo.headquarters.hills}, {ashramInfo.headquarters.town}, West Bengal</span>
               </p>
             </div>
           </button>
@@ -372,13 +377,24 @@ export const Header: React.FC = () => {
               )})}
             </div>
 
-            <div className="pt-3 border-t border-amber-100 flex items-center justify-between">
+            <div className="pt-3 border-t border-amber-100 flex flex-wrap items-center justify-between gap-2">
               <button
                 onClick={() => setIsElementorGuideOpen(true)}
-                className="flex items-center space-x-2 text-xs text-amber-700 font-medium"
+                className="flex items-center space-x-1.5 text-xs text-amber-700 font-medium"
               >
                 <Layers className="w-4 h-4 text-amber-500" />
-                <span>Elementor CMS Guide</span>
+                <span>Elementor CMS</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  navigate('/admin');
+                }}
+                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-amber-900 bg-amber-100 border border-amber-300"
+              >
+                <Lock className="w-3.5 h-3.5 text-amber-700" />
+                <span>Admin Panel</span>
               </button>
 
               <button
@@ -386,7 +402,7 @@ export const Header: React.FC = () => {
                   setMobileMenuOpen(false);
                   setIsDonationModalOpen(true);
                 }}
-                className="flex items-center space-x-2 px-5 py-2 rounded-full text-xs font-bold text-slate-800 bg-gradient-to-r from-amber-600 to-amber-700 shadow-md"
+                className="flex items-center space-x-2 px-4 py-1.5 rounded-full text-xs font-bold text-slate-800 bg-gradient-to-r from-amber-600 to-amber-700 shadow-md"
               >
                 <Heart className="w-3.5 h-3.5 fill-current" />
                 <span>{t('donate')}</span>
