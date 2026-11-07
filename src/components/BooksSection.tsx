@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { BookOpen, ShoppingBag, Check, X, MessageCircle, ExternalLink } from 'lucide-react';
-import { BOOK_PUBLICATIONS } from '../data/ashramData';
 import { BookPublication } from '../types';
+import { useWebsiteData } from '../context/WebsiteDataContext';
 
 export const BooksSection: React.FC = () => {
+  const { books } = useWebsiteData();
   const [selectedBook, setSelectedBook] = useState<BookPublication | null>(null);
   const [requestSent, setRequestSent] = useState(false);
 
@@ -32,7 +33,7 @@ export const BooksSection: React.FC = () => {
 
         {/* Books Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {BOOK_PUBLICATIONS.map((book) => (
+          {books.map((book) => (
             <div
               key={book.id}
               className="bg-white rounded-3xl p-5 shadow-lg border border-amber-200/60 hover:border-amber-500 transition-all duration-300 flex flex-col justify-between group"

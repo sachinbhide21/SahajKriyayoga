@@ -140,13 +140,26 @@ export interface YouTubeVideo {
   thumbnail: string;
 }
 
-export interface GalleryPhoto {
+export type GalleryMediaType = 'photo' | 'video';
+
+export interface GalleryItem {
   id: string;
+  type?: GalleryMediaType; // 'photo' by default
   title: string;
-  category: 'Ashram & Temple' | 'Guru Parampara' | 'Festivals' | 'Meditation Camps' | 'Gadrasini Pahar' | 'Seva Activities' | 'Branch Ashrams';
+  category: string;
   url: string;
+  thumbnail?: string;
+  videoUrl?: string;
+  youtubeId?: string;
+  duration?: string;
+  speaker?: string;
   caption: string;
+  date?: string;
+  location?: string;
+  featured?: boolean;
 }
+
+export type GalleryPhoto = GalleryItem;
 
 export interface DevoteeTestimonial {
   id: string;
@@ -170,3 +183,25 @@ export interface NavPage {
   label: string;
   path: string;
 }
+
+export interface AdminUser {
+  username: string;
+  name: string;
+  role: 'Super Admin' | 'Content Editor' | 'Media Manager';
+  avatar?: string;
+  lastLogin?: string;
+}
+
+export type AdminTab =
+  | 'dashboard'
+  | 'gallery'
+  | 'notices'
+  | 'ashram-info'
+  | 'events'
+  | 'branches'
+  | 'youtube'
+  | 'guru-parampara'
+  | 'books'
+  | 'testimonials'
+  | 'faqs'
+  | 'settings';

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Play, Pause, Youtube, ExternalLink, ListVideo, Sparkles, Eye, X, Radio, BookOpen, Music, Volume2 } from 'lucide-react';
-import { YOUTUBE_VIDEOS, YOUTUBE_PLAYLISTS, YOUTUBE_CHANNEL_INFO, SPIRITUAL_DISCOURSES, SpiritualDiscourseItem } from '../data/ashramData';
+import { YOUTUBE_PLAYLISTS, SPIRITUAL_DISCOURSES, SpiritualDiscourseItem } from '../data/ashramData';
 import { YouTubeVideo } from '../types';
 import { useTheme, AUDIO_TRACKS } from '../context/ThemeContext';
+import { useWebsiteData } from '../context/WebsiteDataContext';
 
 export const YouTubeSection: React.FC = () => {
   const { activeAudioTrack, isPlayingAudio, toggleAudioPlay } = useTheme();
+  const { channelInfo, youtubeVideos } = useWebsiteData();
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [selectedVideo, setSelectedVideo] = useState<YouTubeVideo | null>(null);
   const [selectedPlaylistId, setSelectedPlaylistId] = useState<string | null>(null);
@@ -48,10 +50,10 @@ export const YouTubeSection: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-700">
-                    {YOUTUBE_CHANNEL_INFO.name}
+                    {channelInfo.name}
                   </h3>
                   <div className="flex items-center gap-3 text-xs text-amber-700/80">
-                    <span className="font-mono">{YOUTUBE_CHANNEL_INFO.handle}</span>
+                    <span className="font-mono">{channelInfo.handle}</span>
                     <span>•</span>
                     <span className="inline-flex items-center gap-1 text-emerald-400 font-semibold">
                       <Radio className="w-3 h-3 animate-pulse" /> Auto-Updated Latest Videos
@@ -62,7 +64,7 @@ export const YouTubeSection: React.FC = () => {
             </div>
 
             <a
-              href={YOUTUBE_CHANNEL_INFO.url}
+              href={channelInfo.url}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm shadow-xl transition-all duration-300 hover:scale-105"
